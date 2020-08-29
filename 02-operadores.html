@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+        /*
+            OPERADORES RELACIONAIS
+            > Maior que
+            < Menor que
+            >= Maior ou igual que
+            <=Menor ou igual que
+
+        */
+        // Operador de igualdade
+        let a = 3, b= 6, c= '6'
+
+        //Testando a igualdade de duas variáveis
+        // Para testar a igualdade, usamos DOIS sinais de igual
+        // Um sinal igual faz atrobuição de valor
+        //alert (a==b) // False
+        //alert (b == c) // True
+
+        // Operador de igualdade estrita ou
+        //"Exatamente igual" = três sinais de igual
+        //alert (b===c)
+
+        // Operador de diverença
+        // != mostra se é diferente
+        //alert(a!=b) //True (verdadeiro para diferente) (valor e tipos diferentes)
+        // alert (b!=c) // False (Falso para diferente) (valor igual e tipos diferentes)
+
+        // Operador de diferença estreita
+        //"exatamente diferente"
+
+        //alert(b!==c) // True (Verdadeiro para exatamente diferente)(mesmo valor, tipos diferentes)
+
+        /* Operadores Lógicos
+            OPERADORES LÓGICOS
+            && E Lógico (and)
+            || OU Lógico (or)
+            !  NÃO Lógico (not) Not tem preferência
+
+        */
+       //alert(5 > 4 && 2 > 1)  // True (todo mundo é verdadeiro)
+       // alert(5 < 4 && 2 > 1)    // False (nem todo mundo é verdadeiro)
+       // alert (5>4 || 2 > 1)     //True (qualquer um é verdadeiro (ambos são))
+       //alert(5 < 4 || 2 > 1)      //True (qualquer um é verdadeiro (um é))
+       // 5 + 4 * 2
+         /* CONVERSÃO DE NÚMERO PARA BOOLEANO
+         0 -> será convertido para false
+         Qualquer valor não-zero -> convertido para true
+
+       */
+      //alert(!0)
+      //alert(!5 < 4 && 2 > 1)  // True
+      //O operador not (!) tem uma precedência muito alta
+      //(é interpretado primeiro) e, por isto quase sempre
+      // É usado com parênteses
+      //alert(!(5 < 4 && 2 > 1))  // True
+
+      // 4 > 5 || 3 == 3 && 2 > 1  // (True) -- E (&&) tem precedência maior que Ou (||)
+      // (4 > 5 || 3 == 3) && 2 > 1  // 
+        /*
+        PRECEDÊNCIA DOS OPERADORES LÓGICOS
+        1º !    (NOT)   Negação
+        2º &&   (E)     Ambos
+        3º ||   (OU)    Um ou outro
+        */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
