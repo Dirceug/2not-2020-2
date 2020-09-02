@@ -33,15 +33,21 @@
      if(isNaN(ano)){
          alert("ERRO: o valor digitado não é um ano")
     }
-    else {operador == ano % 400}
+    else {operador = ano % 400}
         if (operador === 0){
             alert("O ano É BISSEXTO")
         }
-        else {operador == ano % 100}
+        else {operador = ano % 100}
             if (operador === 0){
                 alert("O ano NÃO É BISSEXTO")
             }
-            else {operador == ano % 4}
+            else {operador = ano % 4}
+            if (operador == 0){
+                alert("O ano digitado É BISSEXTO")
+            }
+            else if (operador != 0){
+                alert("O ano digitado NÃO É BISSEXTO")
+            }
 
    
 
