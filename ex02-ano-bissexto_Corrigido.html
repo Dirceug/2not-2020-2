@@ -17,7 +17,7 @@
 
             1) Se o ano divide por 400 é bissexto; *OU*
             2) se divide por 4 *E* não divide por 100, é bissexto
-
+            OBS.: O calculo começou a valer em 1582
             Alguns anos para testar:
             1900: não é
             1600: bissexto
@@ -28,30 +28,32 @@
             2013: não é
       */
 
-     let ano = parseInt(prompt("Digite um ano"))
+     let ano = parseInt(prompt("Digite um ano maior ou igual a 1582"))
      let operador
-     if(isNaN(ano)){
-         alert("ERRO: o valor digitado não é um ano")
+     if(isNaN(ano) || ano < 1582){
+         alert("ERRO: o valor digitado não é um ano válido")
     }
-    else {operador = ano % 400}
-         if (operador === 0){
-            alert("O ano É BISSEXTO")
+    /*Maneira que EU fiz (tinha alguns erros)
+    // Destando a divisibiliadade do ano por 400
+    else if (ano % 400 == 0){
+        alert("O ano É BISSEXTO")
         }
-        else {operador = ano % 100}
-             if (operador === 0){
-                alert("O ano NÃO É BISSEXTO")
+    // Ano divide exatamnte por 4 e Não divide exatamento por 100
+    else if (ano % 4==0 && ano %100 != 0){
+        alert("O ano NÃO É bissexto")
             }
-            else {operador = ano % 4}
-             if (operador == 0){
-                alert("O ano digitado É BISSEXTO")
+    */
+   // Código otimizado pelo professor
+   /**
+    * Comentário de documentação
+    * **/
+    else if (ano % 400 == 0 || (ano % 4==0 && ano %100 != 0)){
+        alert("O ano É BISSEXTO")
+        }
+    else {
+        alert("O ano NÃO É bissexto")
             }
-            else if (operador != 0){
-                alert("O ano digitado NÃO É BISSEXTO")
-            }
-
-   
-
-
+      
     </script>
 </head>
 <body>

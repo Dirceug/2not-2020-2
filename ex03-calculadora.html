@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        
+        /*
+            Solicite ao usuário para informar dois números e um operador
+            matemaático. Você usará três prompt(), um para cada número e
+            o terceiro para o operador.
+
+            Aceite os seguintes operadores:
+            + => adição
+            - => subtração
+            *, X ou x => multiplicação
+            / ou : => divisão
+
+            Efetue o cálculo apropriado de acordo com o operador informado
+            e informe o resultado usando document.write().
+        */
+        let num1 = parseFloat(prompt("Digite o primeiro Número"))
+        if (isNaN (num1)){
+            alert("O valor digitado não é um número válido")
+        }
+        let num2 = parseFloat(prompt("Digite o segundo Número"))
+        if (isNaN (num2)){
+            alert("O valor digitado não é um número válido")
+        }
+        let operador = prompt("digite a operação")
+        let conta
+        let resultado
+
+        if (operador === "+"){
+            resultado = num1 + num2
+        }
+        else if (operador === "-" ){
+            resultado = num1 - num2
+        }
+        else if (operador === "*" || operador === "x" || operador === "X"){
+            resultado = num1 * num2
+        }
+        else if (operador === "/" || operador === ":")
+            resultado = num1 / num2
+        else {
+            alert("O operador digitado não é válido")
+        }                
+        //document.write(resultado)
+        document.write("O Resultado de" + " " + num1 + " " + operador + " " + num2 + "é = " + resultado)
+        document.write("O Resultado de" + " " + num2 + " " + operador + " " + num1 + "é = " + resultado)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
