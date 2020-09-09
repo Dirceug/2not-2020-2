@@ -29,39 +29,47 @@
         let num2 = parseFloat(prompt("Digite o segundo Número"))
         let operador = prompt("digite a operação")
         let resultado
-        let conta
         //Variável de controle de fluxo
         let temErro = false /*camelCase = Primeira palavra minúscula, depois outras palavras começam em maiúscula*/
 
-        if (isNaN (num1) || isNan (num2)){
+        if (isNaN(num1) || isNaN(num2)){
             alert("O valor digitado não é um número válido")
             temErro = true
         }
         
-        else if (operador === "+"){
-            resultado = num1 + num2
-            conta = num2 + num1
-        }
-        else if (operador === "-" ){
-            resultado = num1 - num2
-            conta = num2 - num1
-        }
-        else if (operador === "*" || operador === "x" || operador === "X"){
-            resultado = num1 * num2
-            conta = num2 * num1
-        }
-        else if (operador === "/" || operador === ":"){
-            resultado = num1 / num2
-            conta = num2 / num1
-        }
         else {
-            alet("Erro: o operador informado é inválido")
-            temErro = true
-        }                
+            switch(operador){
+                case '+':
+                    resultado = num1 + num2
+                    break
+                
+                case '-':
+                    resultado = num1 - num2
+                    break
+                
+                case 'X':   //Case vazio
+                case 'x':   //Case vazio
+                case '*':
+                    resultado = num1 * num2
+                    break
+
+                case "/":   //Case vazio
+                case ':':
+                    resultado = num1 / num2
+                default:    // Se não entrar em nenhum case
+                    alert("ERRO: o operador informado é inválido.")
+                    temErro = true
+            }
+
+
+        }
         //document.write(resultado)
         if(!temErro){
-        document.write("O Resultado de" + " " + num1 + " " + operador + " " + num2 + "é = " + resultado + ".")
-        document.write("O Resultado de" + " " + num2 + " " + operador + " " + num1 + "é = " + conta + ".")
+        //document.write("O Resultado de" + " " + num1 + " " + operador + " " + num2 + "é = " + resultado + ".")
+        //document.write("O Resultado de" + " " + num2 + " " + operador + " " + num1 + "é = " + conta + ".")
+
+        // Usando string template (que usa acentro graves - backtick)
+        document.write(`O resultado da operação: <br>${num1} ${operador} ${num2} é igual a ${resultado}.`)
         }
 
     </script>

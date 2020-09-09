@@ -33,26 +33,22 @@
         //Variável de controle de fluxo
         let temErro = false /*camelCase = Primeira palavra minúscula, depois outras palavras começam em maiúscula*/
 
-        if (isNaN (num1) || isNan (num2)){
+        if (isNaN (num1) || isNaN (num2)){
             alert("O valor digitado não é um número válido")
             temErro = true
         }
         
         else if (operador === "+"){
             resultado = num1 + num2
-            conta = num2 + num1
         }
         else if (operador === "-" ){
             resultado = num1 - num2
-            conta = num2 - num1
         }
         else if (operador === "*" || operador === "x" || operador === "X"){
             resultado = num1 * num2
-            conta = num2 * num1
         }
         else if (operador === "/" || operador === ":"){
             resultado = num1 / num2
-            conta = num2 / num1
         }
         else {
             alet("Erro: o operador informado é inválido")
@@ -60,8 +56,11 @@
         }                
         //document.write(resultado)
         if(!temErro){
-        document.write("O Resultado de" + " " + num1 + " " + operador + " " + num2 + "é = " + resultado + ".")
-        document.write("O Resultado de" + " " + num2 + " " + operador + " " + num1 + "é = " + conta + ".")
+        //document.write("O Resultado de" + " " + num1 + " " + operador + " " + num2 + "é = " + resultado + ".")
+        //document.write("O Resultado de" + " " + num2 + " " + operador + " " + num1 + "é = " + conta + ".")
+
+        // Usando string template (que usa acentro graves - backtick)
+        document.write(`O resultado da operação: <br>${num1} ${operador} ${num2} é igual a ${resultado}.`)
         }
 
     </script>
