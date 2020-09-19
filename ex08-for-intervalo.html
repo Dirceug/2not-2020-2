@@ -17,10 +17,13 @@
             valores da variável de controle que sejam múltiplos de 7.
 
         */
-
-        for(let num = 3; num <=1000; num = num + 3 )
+       let numero
+        for(let num = 3; num <=1000; num += 3 )
         {
-            document.write(`${num}<br`)
+            if (num % 7 ==0)
+                {
+                document.write(`${num}<br>`)
+                }
         }
 
     </script>

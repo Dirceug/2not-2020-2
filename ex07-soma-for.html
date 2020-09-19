@@ -22,20 +22,25 @@
 
         */
 
-        let num1 = parseInt(prompt("Digite o Primeiro Número"))
-        let num2 = parseInt(prompt("Digite o Segundo Número"))
-        let operador = 0
-
-        do((num1 ! num2) || isNaN(num1) || isNaN(num2) )
-        {
-            for(let i= num1; i<=num10; i++ )
+        let num1, num2
+        do{
+            do
             {
-            operador += num1
-            }
-        document.write(`O total da soma de totos os números entre ${nun1} e ${num2} é igual a: ${operador}`)
+                num1 = parseInt(prompt("Informe o primeiro número"))
+            }while(isNaN(num1))
 
+            do
+            {
+                num2 = parseInt(prompt("Informe o segundo número"))
+            }while(isNaN(num2))
+
+        }while(num1 >= num2)//Garante que Num1 é maior que num2
+        let soma = 0
+        for(let i = num1; i <= num2; i++)
+        {
+            soma += i //Equivale a: soma = soma + 1
         }
-
+        document.write(`A soma dos números entre ${num1} e ${num2} é igual a: ${soma}`)
         
 
     </script>

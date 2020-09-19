@@ -22,20 +22,24 @@
             o número informado.
 
         */
-        let num = parseInt(prompt("Digite um número Maior que 1000"))
+        let num 
         do
         {
-            if (num <= 1000)
-            {
-                prompt("O número digitado é menor que 1.000")
-            }
-        }while (num > 1000)
+            num = parseInt(prompt("Informe um número maior que 1000: "))
+            
+        }while (isNaN(num) || num <= 1000)
 
-        let escreva
+        let i = 1
 
-        while (num > 1000)
+        while (i <= num)
         {
-            document.write(escreva)
+                let cont = 0
+                cont = cont + 1
+            if (i % 13 == 0 || i % 23 ==0)
+            {
+                document.write(` O ${cont}º número é ${i} "<br>"`)
+            }i++
+           
         }
 
 

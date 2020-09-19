@@ -21,13 +21,18 @@
             7! = 7 * 6 * 5 * 4 * 3 * 2 * 1         
 
         */
-        let operador
-        let num = parseInt(prompt("Digite um número inteiro maior que 1(Um)"))
+        let num 
+        let fatorial = 1
+        do
+        {
+            num = parseInt(prompt("Digite um número inteiro maior que 1(Um)"))
+        }while (isNaN(num) || num <=0 )
+
         for(let i = num; i>= 1 ; i-- )
         {
-            operador = num * i
+            fatorial *= i // Equivale a : fatorial = fatorial * i
         }
-        document.write(`O número ${num} fatorado é igual a: ${operador})
+        document.write(`O número ${num} fatorado é igual a: ${fatorial}`)
 
     </script>
 </head>
