@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+   
+</head>
+<body>
+    <h1>Isto é um Titulo</h1>
+    <p>Isto é um paragrafo</p>
+    <ul>
+        <li id="item-x">Terceiro Item</li>
+        <li>Primeiro Item</li>
+        <li id="intruso">Intruso</li>
+        <li>Segundo Item</li>
+       
+    
+    
+    </ul>
+     <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+        /*
+        DOM = Document Object Model (Modelo de Objetos de Documento)
+        */
+
+        //document.querySelector: retorna o primeiro elemento de seu tipo
+        // Criador de variavel "const" impede valor de variavel ser alterado depois de declarado.
+       const cabec = document.querySelector('h1')
+        //Alterando o texto interno do elemento
+        cabec.innerHTML = 'Manipulando o Document Object Model (DOM)'
+
+        /*
+        Alterando o texto do SEGUNDO item
+        */
+       // document.querySelectorAll: captura TODOS os elementos do tipo informado
+       const itens = document.querySelectorAll('li')
+
+       // Em Java Script, o primeiro elemento é o de Índice 0 (ZERO)
+       
+       itens[1].innerHTML = 'Bertoldo'
+        //Forma tradicional de capturar
+       const itens2 = document.getElementsByTagName('li')
+       itens2[2].innerHTML = "Gerônimo"
+
+       // Capturando um elemento por ID da forma antiga
+       const elemIntruso = document.getElementById("intruso")
+       elemIntruso.innerHTML = 'SOU UM INTRUSO'
+
+        // Capturando um elemento por id da forma nova (ES5+)
+        /* Para capturar por id com querySekector(), é necessário usar # antes do id do elemento
+
+        */
+
+       const elemX = document.querySelector("#item-x")
+       elemX.style.backgroundColor = "#fafafa"
+
+
+
+    </script>
+    
+</body>
+</html>
