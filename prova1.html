@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+        let num
+        let posto
+        let i
+        let kmivertido
+        for(i = 1; i <= 400; i = i + 1)
+        {
+            if  (i % 29 == 0)
+            {
+                kmivertido = (400 - i)
+                
+                document.write(`No sentido Franca a SP tem uma lombofaixa no KM ${i} <br>`)
+            }
+        }
+        
+        do
+       {
+           num = Number(prompt("Digite o número de um KM: "))
+       }while (isNaN(num) || num >= 400 )
+
+               switch (num)
+               {
+                   case 92:
+                   case 177:
+                   case 291:
+                   case 388:
+                   alert(`No KM ${num} há uma Megaloja do Magazine Luiza`)
+                   break
+
+                   case 153:
+                   case 356:
+                   alert(`No KM ${num} há um Drive-thru dos Calçados Rafarillo`)
+                   break
+                   
+                   case 187:
+                   alert(`No KM ${num} há um posto de recarga da Viação São José`)
+                   break
+
+                   case 210:
+                   alert(`No KM ${num} há uma Filial da Padaria Estrela`)
+                   break
+
+                   case 314:
+                   alert(`No KM ${num} Há uma fábrica do Jubilei do amendoim`)
+                   break
+
+                   case 187:
+                   alert(`No KM ${num} há a Unidade II do Franca AcquaParque`)
+                   break
+
+                   default:
+                   alert("Vapo, Tem nada aqui não, segue reto toda vida")
+            
+                 }    
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+
+        for(let km = 400; km >= 1; km--)
+        {
+            if(km % 29 == 0)
+            {
+                document.write(`Lombofaixa no quilômetro ${km} <br>`)
+            }
+        }
+        document.write("<hr>")
+
+        /* Abordagem alternativa também considerada na correção.
+        for (let km = 400; km >=1; km -= 29)
+        {
+             document.write(`Lombofaixa no quilômetro ${km} <br>`)
+        }
+        */
+       let quilometro
+       do 
+       {
+            quilometro = parseInt(prompt('Informe um quilômetro entre 1 e 400:'))
+       } while (isNaN(quilometro) || quilometro < 1 || quilometro > 400) 
+
+       let msg
+       switch(quilometro)
+       {
+            case 92:
+            case 177:
+            case 291:
+            case 388:
+                msg = 'Megaloja do Magazine Luiza'
+                break
+
+            case 153:
+            case 356:
+                msg = 'Drive-thru dos Calçados Rafarillo'
+                break
+            case 187:
+                msg = 'Posto de Recarva Viação São José'
+                break
+            case 210:
+                msg = 'Filial da Padaria Estrela'
+                break
+            case 314:
+                msg = 'Fábrica do Jubileu do Amendoid'
+                break
+            case 367:
+                msg = 'Franca Acqua Park Unidade II'
+                break
+            
+            default:
+                msg = 'Vapo, tem nada aqui não. Segue reto toda vida, meu fii.'
+       }
+       alert(msg)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
