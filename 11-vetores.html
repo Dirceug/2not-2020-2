@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+
+        // Declarando um vetor vazio
+        let vetor1 = []      // Forma moderna 
+        let vetor2 = Array() //Forma tradicional de fazer
+
+        // Declarando e inicializando vetores com elementos
+
+        let carros = ['Fusca', 'Del Rey', 'Passat', 'Opala']
+        let cores = Array('Verde', 'Laranja', 'Branco', 'Vermelho', 'Amarelo', 'Rosa')
+        let numeros = Array(2, 3, 5, 7, 11, 13, 17, 19)
+        
+        // Vetor de Tipos misturados
+
+        let mistura = ['João da Coves', 63, false, null, undefined]
+
+        let frutas = []
+
+        /* push(): Insere novos elementos no final do vetor */
+
+        frutas.push('Laranja')
+        frutas.push('Melancia')
+        frutas.push('Maçã', 'Limão', 'Pera')//Pode inserir mais de um elemento de uma vez
+        console.log(frutas)
+
+        /*unshift(): insere novos elementos no Inicio do vetor*/
+        frutas.unshift('Jabuticaba')
+        frutas.unshift('Amora')
+        //.pop(): retira um elemento do final do vetor
+        let retirado = frutas.pop() // retira e coloca na variável
+        frutas.pop()  //retira e some com ele
+
+        
+        //.shift: tira um elemento do inicio do vetor
+        frutas.shift()
+        retirado = frutas.shift()//Podendo este elemento ser mandado para uma variável
+        console.log('Retirado: ', retirado)
+        
+        /* .splice(): Insere elementos em uma posição fisica do vetor
+        1º: A posição onde será feita a inserção
+        2º: Quanto selementos serão APAGADOS (PARA INSERÇÕES, DEVE SER ZERO)
+        3º Em diante: os elementos que serão inseridos
+        */
+        frutas.splice(2, 0, 'Morango')//Insere na segunda posição
+        frutas.splice(1, 0, 'Jaca', 'Ameixa')
+
+        /* Usando .splice() Para fazer substituição
+        */
+       frutas.splice(3, 1, 'Manga')// Um elemento será substituido na posição três
+
+       /* .splice(): Também tira elementos de uma posição especifica do vetor
+            Parâmetros:
+            1º: Posição onde será feita a retirada
+            2º: Quantidade de elementos que serão removidos (>0)
+            */        
+        retirado = frutas.splice(1, 1)
+
+        // Colocando novos elementos para massa de teste
+        frutas.push('Framboesa', 'Caju', 'Maracujá', 'Mexerica')
+
+        // Retirando vários elementos de uma vez
+        retirado = frutas.splice(4, 3)
+        console.log('Retirado', retirado)
+
+        // Retirando o último elemento do vetor
+        // Com o menos antes do número ele conta de trás pra frente
+        frutas.splice(-1, 1)
+
+        // .length: Retorna o número de elementos do vetor
+        // Lembrar sempre em terminar a palavra lenth com TH
+        console.log('Número de elementos: ', frutas.length)// Não pode ser lenght!! Cuidado com a ordem do TH
+
+        //.indexOf: Retorna a primeira ocorrência do valor especificado ou -1 caso o vetor não exista
+        console.log('Ameixa', frutas.indexOf('Ameixa'))
+        console.log('Melão', frutas.indexOf('Melão'))
+        console.log('Morango', frutas.indexOf('Morango'))
+
+        if (frutas.indexOf('Manga') >= 0)
+        {
+            console.log('Existe')
+        }
+        else
+        {
+            console.log('Não Existe')
+        }
+
+        /*Includes retorna se o valor de busca existe (true) ou não existe (false)
+            Dentro do vetor */
+        console.log('Ameixa', frutas.includes('Ameixa'))
+        console.log('Melão', frutas.includes('Melão'))
+        console.log('Morango', frutas.includes('Morango'))
+
+        if (frutas.includes('Manga'))
+        {
+            console.log('Existe')
+        }
+        else
+        {
+            console.log('Não Existe')
+        }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
