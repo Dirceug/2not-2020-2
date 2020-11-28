@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13 de Vetor - Dirceu</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+
+        /*
+
+            Na parte HTML, coloque um input numérico com seu label, um botão
+            "Inserir" e uma div para exibir os resultados.
+
+            Na parte JS, declare um vetor vazio.
+
+            Na função associada ao botão, verifique se o valor informado no
+            input é um número. Caso positivo, insira este número EM ORDEM
+            CRESCENTE dentro do vetor (lembre-se de que o usuário poderá
+            inserir quantos números quiser dentro do vetor, e que pode já
+            haver outros números no vetor inseridos anteriormente). Ignore
+            números repetidos.
+
+            Para colocar o número no local correto, você deverá percorrer
+            o vetor com um loop for, verificando se o número que já está na
+            posição é menor ou maior que o número que está sendo inserido.
+            Quando encontrar um número MENOR do que o que será inserido,
+            você terá encontrado a posição correta para inserir em ordem.
+            Faça a inserção com splice() e saia do loop com break.
+
+            A cada inserção, exiba os elementos do vetor dentro da div de
+            resultados. Para gerar a exibição, faça um loop for..of.
+
+        */
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <label>Digite um número</label>
+        <input type="Number" id="idNumero" placeholder="Digite um número" size="25">
+    </div>
+
+    <div>
+        <button id="idInserir">Inserir</button>
+    </div>
+
+    <div id="idResultado">
+    </div>
+
+    <script>
+        const elNumero = document.querySelector('#idNumero') // Cria uma variavel para receber o input de numero
+        const elInserir = document.querySelector('#idInserir') // Cria uma variável ligada ao botão Inserir
+        const elResultado = document.querySelector('#idResultado') // Cria uma variável ligado a div de resultado
+        let numeros = [] // Cria o vetor numeros (que receberá os números)
+        let valor //sVariável que recebera o valor digitado convertido para tipo numero
+
+
+        function validar() // Função para validar se o número foi preenchido
+        {
+            let valido = true
+            if (elNumero.value.trim() == '') //Verifica se tem algo preenchido no input
+            {
+                alert('O Número deve ser digitado.')
+                elNumero.focus() //Coloca o foco no elNumero
+                valido = false // Retorna falso 
+
+            }
+            valor = parseInt(elNumero.value)
+            return valido
+         
+
+        }
+
+
+
+
+
+        function preencherVariavel() {
+            if (validar()) //Se validar for válido
+            {
+                if (numeros.length == 0) // Vê se o vetor está vazio
+                {
+                    numeros.push(valor) //Coloca o primeiro número
+                }
+                else if (numeros.length != 0)
+                {
+                    for (let i = 0; i < numeros.length; i++) //Percorre o vetor numeros
+                    {
+                        if (valor > numeros[numeros.length])  // Convere se o valor digitado é maior que o maior numero digitado no vetor
+                        if (valor < numeros[i]) //Confere se o número digitado é menor que o valor da atual posição
+                        {
+                            numeros.splice(i, 0, valor)//Insere variável valor na posição de i (atual do vetor) empurrando os próximos pra frente
+                            break
+                        }
+                        else if (valor == numeros[i]) // Confere se o número digitado é igual ao numero na posição do vetor
+                        {
+                            numeros.splice(i, 1, valor) //substitui o que está lá pelo que se está digitando
+                        }
+                        else if (valor > numeros[i]) //Confere se o valor digitado é maior que o numero na posição do vetor
+                        {
+                            if (valor < numeros[i+1]) //Confere se o número é menor que o da próxima posição.
+                            {
+                               numeros.splice(i + 1, 0, valor)// Insere variavel valor na posição a frente da atual
+                            }
+                            else if (valor == numeros[i+1])
+                            {
+                                break
+                            }
+                        break
+                        }
+
+                    }
+                }
+                console.log(numeros)
+                let resultado = '' // Cria a variavel que receberá os números como string e a deixa vazia
+                for (let numero of numeros) // Percorre todo o vetor mandando cada valor para a variável numero
+                {
+                    resultado += numero + "; " //Acrescenta o valor de numero a string de resultado
+                }
+                elResultado.innerText = resultado //Manda a varial reultado com todos os números como string para a div de reultado
+            }
+
+        }
+
+        elInserir.addEventListener('click', preencherVariavel)/*Manda fazer a Function após o notão Resultado ser clicado*/
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

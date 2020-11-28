@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <style>
+        label {
+            /* Faz com que os labels ocupem sua própria linha */
+            display: block;  
+        }
+        div {
+            /* Coloca margem inferior para dar espaço vertical entre as divs */
+            margin-bottom: 20px;
+        }
+    </style> 
+
+</head>
+
+<body>
+    <h1>Gerador de Padrão</h1>
+
+    <div>
+        <label>Informe o caractere escolhido: </label>
+        <input type = "text" id="idcaractere" placeholder="Caractere" size="5" maxlength="1">
+    </div>
+
+    <div>
+        <label>Informe um número válido de 1 a 100: </label>
+        <input type = "number" id ="idnumero" placeholder="Número" size="5">
+    </div>
+
+    <div>
+        <button id="idgerar">Gerar Padrão</button>
+    </div>
+
+    <div id=idpadrao>
+    </div>
+
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+
+        /*
+
+            Reimplemente o Exercício 11 (Padrão de Texto), com a modificação
+            descrita a seguir.
+
+            Declare uma função que receba um caractere e um número e gere um
+            padrão de texto conforme as instruções daquele exercício. Essa
+            função não precisa ter valor de retorno.
+
+            Depois, substitua o trecho de código que gera o padrão por uma
+            chamada à função recém-declarada.
+
+        */
+        //Captura dos elementos
+        const elCaract = document.querySelector('#caract')
+        const elNumLinhas = document.querySelector('#num-linhas')
+        const elResultado = document.querySelector('#resultado')
+        const elGerar = document.querySelector('#gerar')
+
+        function escreverPadrao (caract, quantLinhas)
+        {
+            let padrao = ''
+
+            for(let i = 1; i <= quantLinhas; i++) {
+                // repeat(): repete um texto quantas vezes for informado
+                // <br> necessário para quebra de linha
+                padrao += caract.repeat(i) + '<br>'
+            }
+
+            // Aqui temos que usar innerHTML para que o código <br> seja
+            // interpretado como quebra de linha, e não como um texto comum
+            elResultado.innerHTML = padrao
+        }
+
+        function gerarPadrao() 
+        {
+
+            /* Validação da entrada de usuário */
+            let numLinhas = parseInt(elNumLinhas.value)
+            let caract = elCaract.value.trim()
+            let valido = true
+
+            // length(): retorna a quantidade de caracteres de uma string
+            if(caract == '' || caract.length > 1) {
+                alert('Este campo não pode ser vazio nem ter mais de um caractere.')
+                elCaract.focus()
+                valido = false
+            }
+            else if (isNaN(numLinhas) || numLinhas < 1 || numLinhas > 100) {
+                alert('O número de linhas deve estar entre 1 e 100.')
+                elNumLinha.focus()
+                valido = false
+            }
+
+            if(valido) {
+
+            }
+
+        }
+
+        elGerar.addEventListener('click', gerarPadrao)
+        /* 
+
+            Monte um formulário com os seguintes campos:
+            * Um input de texto que aceite apenas 1 (um caractere)
+            * Um input numérico que aceite números inteiros entre 1 e 100
+            * Uma div para exibição do resultado
+            * Botão "Gerar padrão"
+
+            Validações:
+            * Deve ser informado um caractere (não pode ser o espaço em branco)
+            * Deve ter informado um número entre 1 e 100
+
+            Ao clicar o botão "Gerar padrão", deverá ser exibido na div de
+            resultado um padrão de texto conforme o exemplo abaixo:
+
+            Se o caractere informado for * e o número selecionado for 11, serão
+            geradas 11 linhas de padrão de texto, a primeira linha contendo
+            uma vez o caractere, a segunda linha contendo o caractere duas
+            vezes, e assim por diante:
+
+            *
+            **
+            ***
+            ****
+            *****
+            ******
+            *******
+            ********
+            *********
+            **********
+            ***********
+        */
+        
+    </script>
+
+</body>
+
+</html>

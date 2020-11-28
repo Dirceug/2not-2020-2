@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Dirceu</title>
+    <script>
+        //'use strict' impede que variáveis sejam declaradas
+        //sem o uso de let, var ou const
+        //inicializar variáveis diretamente é má prática de
+        //programação
+        'use strict'
+        //***Passo 1 Quem é o cara?
+        //let senha = prompt("Quem é o cara?")
+        //while(senha == "Dirceu")
+        //{
+            //***Passo 2 Captura de Elementos do HTML***
+            //---Variaveis do Calculo de Porcentagem
+            const elPrimeiroNumero = document.querySelector("#idPrimeiroNumero")//Variavel que recebe o primeiro Número
+            const elSegundoNumero = document.querySelector("#idSegundoNumero")//Variável que recebe o SegundoNomero
+            const elResultadoPorcentagem = document.querySelector("#idResultadoPorcentagem")//Variável que recebe o resultado
+            const elHistoricoPorcentagem = document.querySelector("#idHistoricoPorcentagem")//Variável que recebe o histórico
+            const elCalcularPorcentagem = document.querySelector("#idCalcularPorcentagem")//Variável do botão enviar
+
+            //---Variáveis do Calculo de novo valor
+            const elNumero = document.querySelector("#idNumero")//Variável que recebe o Valor
+            const elPorcentagem = document.querySelector("#idPorcentagem")//Variável que recebe a porcentagem
+            const elResultadoNovoNumero = document.querySelector("#idResultadoNumero")//Variável que recebe o Resultado
+            const elHistoricoValor = document.querySelector("#idHistoricoValor")//Variável que recebe o histórico
+            const elCalcularNovoValor = document.querySelector("#idCalcularNovoValor")//Variável do botão enviar
+
+
+            //***Passo 3.1 Validação da Dados do Usuário para calculo de porcentagem
+            let primeiroValor = 0
+            let segundoValor = 0
+            let valor = 0
+            let porcentagem = 0
+
+            let diferenca = 0
+            let resultado = 0
+            let historico = ""
+            function validarPorcentagem()
+            {
+                let valido = true
+                if (elPrimeiroNumero.value.trim() == '')
+                {
+                    alert("O Primeiro Valor precisa ser informado")
+                    elPrimeiroNumero.focus()
+                    valido = false
+                }
+                else
+                {
+                    primeroiValor = parseFloat(elPrimeiroNumero.value)
+                }
+                if (elSegundoNumero.value.trim() == '')
+                {
+                    alert("O Segundo Valor precisa ser informado")
+                    elSegundoNumero.focus()
+                    valido = false
+                }
+                else
+                {
+                    segundoValor = parseFloat(elSegundoNumero.value)
+                }
+            }
+
+            //***Passo 4.1 Calculo de porcentagem
+
+            function calcularPorcentagem ()
+            {
+                if (validarPorcentagem())
+                {
+                    diferenca = primeiroValor - segundoValor
+                    resultado = primeiroValor * diferenca * 100
+                }
+                elResultadoPorcentagem.innerText = (`A diferença entre os dois valores é de: ${diferenca}, representando ${resultado} % do primeiro valor`)                
+            }
+            elCalcularPorcentagem.addEventListener ('click', calcularPorcentagem)
+            //elCalcularPorcentagem.addEventListener ('click', calcularPorcentagem)
+
+            /*if (diferenca > 0)
+            {
+
+            }*/
+            //***Passo 4.2 Validação da Dados do Usuário para calculo de novo valor
+            function validarValor()
+            {
+                let valido = true
+                if (elNumero.value.trim() == '')
+                {
+                    alert("O Valor precisa ser informado")
+                    elNumero.focus()
+                    valido = false
+                }
+                else
+                {
+                    valor = parseFloat(elPrimeiroNumero.value)
+                }
+                if (elPorcentagem.value.trim() == '')
+                {
+                    alert("A porcentagem precisa ser informada")
+                    elPorcentagem.focus()
+                    valido = false
+                }
+                else
+                {
+                    porcentagem = parseFloat(elSegundoNumero.value)
+                }
+                
+            }
+
+            function calcularNovoValor()
+            {
+                if (validarValor())
+                {
+                    valor =  elNumero * elporcentagem / 100
+                    porcentagem = valor - elNumero
+                }
+                elResultadoNovoNumero.innerText = (`O Novo valor é de: ${valor}, Uma diferença de: ${porcentagem}`)
+            }
+            elCalcularNovoValor.addEventListener ('click', calcularNovoValor)
+        //}
+
+    </script>
+    <style>
+        h1
+        {
+            font-size: 36pt;
+            font-weight: bold;
+            width: 420px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+        fieldset
+        {
+            width: 420px;
+            margin: auto;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 10pt;
+        }
+
+        fieldset:hover
+        {
+            box-shadow: rgba(0, 0, 0, .3) 4px 4px 4px;
+        }
+
+        legend
+        {
+            font-size: 15pt;
+        }
+
+        label
+        {
+            font-weight: bold;
+        }
+        input:hover
+        {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        section
+        {
+            float: left;
+            margin: auto;
+            margin-left: 100px;
+        }
+        aside
+        {
+            float: right;
+            margin: auto;
+            margin-right: 100px;
+        }
+        footer
+        {
+            clear: both;
+            text-align: center;
+            border-top: solid rgba(0, 0, 0, .5);
+            width: 160px;
+            margin: auto;
+            margin-top: 650px;
+            padding: 05px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Super Dirceu</h1></header>
+    <form>
+        <section>
+            <fieldset id="idPorcentagem">
+                <legend>Calcular a porcentagem entre dois números</legend>
+                <p><label for="idPrimeiroNumero">Primeiro Número: </label><input type="number" name="primeiroNumero" id="idPrimeiroNumero" size="20" placeholder="Digite o Primeiro Número"/></p>
+                <p><label for="idSegundoNumero">Segundo Número: </label><input type="number" name="segundoNumero" id="idSegundoNumero" size="20" placeholder="Digite o Segundo Número"/></p>
+                <div>
+                    <button type="button" id="idCalcularPorcentagem">Calcular</button>
+                </div>
+                <div id="idResultadoPorcentagem"></div>
+            </fieldset>
+            <div id="historicoPorcentagem"></div>
+        </section>
+        <aside>
+            <fieldset id="idValor">
+                <legend>Calcular o segundo número a partir da porcentagem</legend>
+                <p><label for="idNumero">Valor: </label><input type="number" name="numero" id="idNumero" size="20" placeholder="Digite o Número"/></p>
+                <p><label for="idPorcentagem">Porcentagem:     </label><input type="number" name="porcentagem" id="idPorcentagem" size="20" placeholder="Digite a porcentagem"/>%</p>
+                <div>
+                    <button type="button" id="idCalcularNovoValor">Calcular</button>
+                </div>
+                <div id="idResultadoNumero"></div>
+            </fieldset>
+            <div id="historicoValor"></div>
+        </aside>
+    </form>
+    <footer>
+        <p>Dirceu Garcia</p>
+        <p>992-347-374</p>
+    </footer>
+</body>
+</html>
